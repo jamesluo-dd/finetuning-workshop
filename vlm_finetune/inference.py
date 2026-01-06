@@ -13,7 +13,7 @@ vllm_image = (
     .env({"HF_HUB_ENABLE_HF_TRANSFER": "1", "VLLM_USE_V1": "1"})  # faster model transfers
 )
 
-MODEL_PATH = "/checkpoints/merged-out/merged"  # Local path to Qwen/Qwen2.5-VL-7B-Instruct weights
+MODEL_PATH = "/checkpoints/vlm-merged-out/merged"  # Local path to Qwen/Qwen2.5-VL-7B-Instruct weights
 VLLM_PORT = 8000
 
 
