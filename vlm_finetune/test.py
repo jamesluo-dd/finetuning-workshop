@@ -105,7 +105,7 @@ def test():
                 resp = requests.post(
                     f"{base_url}/v1/chat/completions",
                     json=payload,
-                    timeout=120,
+                    timeout=500,
                 )
                 resp.raise_for_status()
                 data = resp.json()
