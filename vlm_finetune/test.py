@@ -67,7 +67,8 @@ def test():
 
     base_url = get_server_base_url()
     model_name = "Qwen/Qwen2.5-VL-7B-Instruct"
-    data_path = "/data/test.messages.jsonl"
+    #data_path = "/data/test.messages.jsonl"
+    data_path = "/data/mini_test.jsonl"
     if not os.path.exists(data_path):
         print(f"Missing test data at {data_path}")
         return
