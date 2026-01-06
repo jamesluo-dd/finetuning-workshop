@@ -2,6 +2,7 @@ import modal
 import subprocess
 import re
 import shutil
+import os
 
 
 from .common import axolotl_image, data_volume, CONFIG_FILE_PATH
@@ -43,6 +44,8 @@ def prep_dataset():
     #             src_obj = json.loads(line)
     #             dst_obj = to_messages(src_obj)
     #             fout.write(json.dumps(dst_obj, ensure_ascii=False) + "\n")
+    current_dir = os.getcwd()
+    print(current_dir)
 
     for p in range(len(src_paths)):
         shutil.copy(src_paths[p], dst_paths[p])
