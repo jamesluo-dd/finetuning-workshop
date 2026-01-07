@@ -32,6 +32,7 @@ app = modal.App("vllm-llama-inference-vanilla")
         "/root/.cache/vllm": vllm_cache_vol,
         "/checkpoints": checkpoints_volume,
     },
+    env={"VLLM_USE_V1": "0"}
 )
 @modal.concurrent(max_inputs=32)
 @modal.web_server(port=VLLM_PORT, startup_timeout=10 * 60)
