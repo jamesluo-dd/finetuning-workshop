@@ -33,13 +33,13 @@ app = modal.App("axolotl-vlm-finetune_llama3")
 CKPT_VOLUME_DIR = Path("/checkpoints")
 DATA_VOLUME_DIR = Path("/data")
 
-LORA_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-lora-out_llama3_2_vision_ZL_merged_cont"
-MERGED_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-merged-out_llama3_2_vision_ZL_merged_cont"
+LORA_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-lora-out_llama3_2_vision_ZL_merged_cont_large_step"
+MERGED_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-merged-out_llama3_2_vision_ZL_merged_cont_large_step"
 
 
 @app.function(
     image=axolotl_image,
-    gpu="H100",
+    gpu="H200",
     #secrets=[modal.Secret.from_name("huggingface-secret")],
     volumes={CKPT_VOLUME_DIR.as_posix(): checkpoints_volume, DATA_VOLUME_DIR.as_posix(): data_volume},
     timeout=5 * 60 * 60,  # 4 hours
