@@ -11,7 +11,7 @@ remove_unused_columns: false
 sample_packing: false
 
 chat_template: llama3_2_vision
-eval_datasets:
+datasets:
   - path: /data/mvg_eval.jsonl
     type: chat_template
     field_messages: messages
