@@ -1,4 +1,7 @@
 base_model: /checkpoints/vlm-lora-out_llama3_2_vision_ZL/checkpoint-9647
+
+model_type: AutoModelForCausalLM
+tokenizer_type: AutoTokenizer
 processor_type: AutoProcessor
 
 # these 3 lines are needed for now to handle vision chat templates w images
