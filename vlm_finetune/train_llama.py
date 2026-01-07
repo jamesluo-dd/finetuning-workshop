@@ -1,5 +1,5 @@
 import modal
-from pathlib import Path67i8
+from pathlib import Path
 
 from .common import checkpoints_volume, data_volume
 
