@@ -1,4 +1,4 @@
-base_model: /checkpoints/vlm-merged-out_llama3_2_vision_ZL
+base_model: /checkpoints/vlm-merged-out_llama3_2_vision_ZL/merged
 
 model_type: AutoModelForCausalLM
 tokenizer_type: AutoTokenizer
