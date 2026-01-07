@@ -39,7 +39,7 @@ MERGED_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-merged-out_llama3_2_vision_ZL"
 
 @app.function(
     image=axolotl_image,
-    gpu="H100",
+    gpu="H200",
     #secrets=[modal.Secret.from_name("huggingface-secret")],
     volumes={CKPT_VOLUME_DIR.as_posix(): checkpoints_volume, DATA_VOLUME_DIR.as_posix(): data_volume},
     timeout=4 * 60 * 60,  # 4 hours
