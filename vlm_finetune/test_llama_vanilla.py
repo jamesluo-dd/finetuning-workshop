@@ -17,7 +17,7 @@ def test():
 
     def get_server_base_url() -> str:
         #url = os.environ.get("VLLM_SERVER_URL")
-        url = "https://doordash-sandbox--vllm-qwen-inference-serve-dev.modal.run"
+        url = "https://doordash-sandbox--vllm-llama-inference-vanilla-serve-dev.modal.run"
         if url:
             return url.rstrip("/")
         try:
