@@ -126,7 +126,7 @@ def test():
 
             #is_correct = predicted == expected and predicted in {"yes", "no"}
             is_correct = False
-            try
+            try:
                 print(expected, "vs", predicted)
                 expected_match = json.loads(expected)['match_decision']
                 predicted_match = json.loads(predicted)['match_decision']
