@@ -1,9 +1,9 @@
 base_model: /checkpoints/vlm-merged-out_llama3_2_vision_ZL
 
-model_type: AutoModelForVision2Seq
+model_type: AutoModelForCausalLM
 tokenizer_type: AutoTokenizer
 processor_type: AutoProcessor
-tokenizer_use_fast: true
+
 
 # these 3 lines are needed for now to handle vision chat templates w images
 skip_prepare_dataset: true
@@ -28,7 +28,7 @@ eval_datasets:
     field_images: images
 dataset_prepared_path: ./last_run_prepared
 val_set_size: 0.0
-output_dir: /checkpoints/vlm-lora-out_llama3_2_vision_ZL_cont
+output_dir: /checkpoints/vlm-lora-out_llama3_2_vision_ZL_merged_cont
 
 adapter: lora
 lora_model_dir:
