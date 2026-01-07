@@ -5,7 +5,7 @@ from .common import checkpoints_volume, data_volume
 
 
 
-CONFIG_FILE_PATH = Path("/config_llama.yml")
+CONFIG_FILE_PATH = Path("/config_llama_v2.yml")
 
 axolotl_image = (
     modal.Image.from_registry("axolotlai/axolotl:0.12.1")
@@ -25,7 +25,7 @@ axolotl_image = (
         )
     )
     .entrypoint([])
-    .add_local_file(Path(__file__).parent / "config_llama.yml", CONFIG_FILE_PATH.as_posix())
+    .add_local_file(Path(__file__).parent / "config_llama_v2.yml", CONFIG_FILE_PATH.as_posix())
 )
 
 app = modal.App("axolotl-vlm-finetune_llama3")
