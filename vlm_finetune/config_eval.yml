@@ -11,12 +11,6 @@ remove_unused_columns: false
 sample_packing: false
 
 chat_template: llama3_2_vision
-# datasets:
-
-#   - path: /data/mvg_train.jsonl
-#     type: chat_template
-#     field_messages: messages
-#     field_images: images
 eval_datasets:
   - path: /data/mvg_eval.jsonl
     type: chat_template
@@ -24,7 +18,7 @@ eval_datasets:
     field_images: images
 dataset_prepared_path: ./last_run_prepared
 val_set_size: 0.0
-output_dir: /checkpoints/vlm-lora-out_llama3_2_vision_ZL_cont
+output_dir: /data/vlm-lora-out_llama3_2_vision_ZL_eval_out
 
 adapter: lora
 lora_model_dir:

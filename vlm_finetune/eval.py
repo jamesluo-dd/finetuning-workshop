@@ -5,7 +5,7 @@ from .common import checkpoints_volume, data_volume
 
 
 
-CONFIG_FILE_PATH = Path("/config_llama.yml")
+CONFIG_FILE_PATH = Path("/config_eval.yml")
 
 axolotl_image = (
     modal.Image.from_registry("axolotlai/axolotl:0.12.1")
@@ -25,16 +25,16 @@ axolotl_image = (
         )
     )
     .entrypoint([])
-    .add_local_file(Path(__file__).parent / "config_llama.yml", CONFIG_FILE_PATH.as_posix())
+    .add_local_file(Path(__file__).parent / "config_eval.yml", CONFIG_FILE_PATH.as_posix())
 )
 
-app = modal.App("axolotl-vlm-finetune_llama3")
+app = modal.App("axolotl-vlm-finetune_llama3_eval")
 
 CKPT_VOLUME_DIR = Path("/checkpoints")
 DATA_VOLUME_DIR = Path("/data")
 
-LORA_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-lora-out_llama3_2_vision_ZL_out"
-MERGED_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-merged-out_llama3_2_vision_ZL"
+#LORA_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-lora-out_llama3_2_vision_ZL"
+#MERGED_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-merged-out_llama3_2_vision_ZL"
 
 
 @app.function(
@@ -44,16 +44,14 @@ MERGED_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-merged-out_llama3_2_vision_ZL"
     volumes={CKPT_VOLUME_DIR.as_posix(): checkpoints_volume, DATA_VOLUME_DIR.as_posix(): data_volume},
     timeout=5 * 60 * 60,  # 4 hours
 )
-def train():
+def evaluate():
     import subprocess
 
     subprocess.run(
         [
             "axolotl",
-            "train",
+            "evaluate",
             CONFIG_FILE_PATH.as_posix(),
-            "--output-dir",
-            LORA_OUTPUT_DIR.as_posix(),
         ],
         check=True,
     )
