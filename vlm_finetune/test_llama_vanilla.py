@@ -2,7 +2,7 @@ import modal
 
 from .common import data_volume
 
-app = modal.App("vllm-qwen-test")
+app = modal.App("vllm-llama-vanilla-test")
 
 @app.function(
         image=modal.Image.debian_slim().pip_install("requests"),
@@ -17,7 +17,7 @@ def test():
 
     def get_server_base_url() -> str:
         #url = os.environ.get("VLLM_SERVER_URL")
-        url = "https://doordash-sandbox--vllm-llama-inference-vanilla-serve-dev.modal.run"
+        return "https://doordash-sandbox--vllm-llama-inference-vanilla-serve-dev.modal.run"
         if url:
             return url.rstrip("/")
         try:
@@ -67,7 +67,7 @@ def test():
         return [m for m in messages if m.get("role") != "assistant"]
 
     base_url = get_server_base_url()
-    #model_name = "Qwen/Qwen2.5-VL-7B-Instruct"
+    model_name = "meta-llama/Llama-3.2-11B-Vision-Instruct"
     data_path = "/data/mvg_eval.jsonl"
     if not os.path.exists(data_path):
         print(f"Missing test data at {data_path}")
@@ -97,7 +97,7 @@ def test():
             input_messages = strip_assistant_messages(messages)
 
             payload = {
-                #"model": model_name,
+                "model": model_name,
                 "messages": input_messages,
                 "max_tokens": 8,
                 "temperature": 0,
