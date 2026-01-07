@@ -58,7 +58,7 @@ def train():
         check=True,
     )
 
-    subprocess.run(
+    subprocess.
         [
             "axolotl",
             "merge-lora",
