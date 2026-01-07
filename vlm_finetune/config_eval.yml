@@ -11,16 +11,12 @@ remove_unused_columns: false
 sample_packing: false
 
 chat_template: llama3_2_vision
-datasets:
-  # - path: HuggingFaceH4/llava-instruct-mix-vsft
-  #   type: chat_template
-  #   split: train[:1%]
-  #   field_messages: messages
-  #   # field_images: images_vsft
-  - path: /data/mvg_train.jsonl
-    type: chat_template
-    field_messages: messages
-    field_images: images
+# datasets:
+
+#   - path: /data/mvg_train.jsonl
+#     type: chat_template
+#     field_messages: messages
+#     field_images: images
 eval_datasets:
   - path: /data/mvg_eval.jsonl
     type: chat_template

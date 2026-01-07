@@ -1,6 +1,6 @@
 base_model: /checkpoints/vlm-merged-out_llama3_2_vision_ZL
 
-model_type: AutoModelForCausalLM
+model_type: AutoModelForVision2Seq
 tokenizer_type: AutoTokenizer
 processor_type: AutoProcessor
 tokenizer_use_fast: true
