@@ -13,7 +13,7 @@ vllm_image = (
     .env({"HF_HUB_ENABLE_HF_TRANSFER": "1", "VLLM_USE_V1": "1"})  # faster model transfers
 )
 
-MODEL_PATH = "meta-llama/Llama-3.2-11B-Vision-Instruct"  # Local path to Qwen/Qwen2.5-VL-7B-Instruct weights
+MODEL_PATH = "alpindale/Llama-3.2-11B-Vision-Instruct"  # Local path to Qwen/Qwen2.5-VL-7B-Instruct weights
 VLLM_PORT = 8000
 
 
@@ -44,7 +44,7 @@ def serve():
         "--uvicorn-log-level=info",
         MODEL_PATH,
         "--served-model-name",
-        "meta-llama/Llama-3.2-11B-Vision-Instruct",
+        "alpindale/Llama-3.2-11B-Vision-Instruct",
         "--host",
         "0.0.0.0",
         "--port",
