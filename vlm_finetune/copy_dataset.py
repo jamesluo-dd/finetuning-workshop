@@ -51,12 +51,12 @@ def prep_dataset():
         shutil.copy(src_paths[p], dst_paths[p])
 
 
-    subprocess.run(
-        [
-            "axolotl",
-            "preprocess",
-            CONFIG_FILE_PATH.as_posix(),
-        ],
-        check=True,
-    )
+    # subprocess.run(
+    #     [
+    #         "axolotl",
+    #         "preprocess",
+    #         CONFIG_FILE_PATH.as_posix(),
+    #     ],
+    #     check=True,
+    # )
     
