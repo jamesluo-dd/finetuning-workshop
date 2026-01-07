@@ -45,7 +45,7 @@ def prep_dataset():
     #             dst_obj = to_messages(src_obj)
     #             fout.write(json.dumps(dst_obj, ensure_ascii=False) + "\n")
     current_dir = os.getcwd()
-    print(current_dir)
+    print(current_dir, DATA_VOLUME_DIR)
 
     for p in range(len(src_paths)):
         shutil.copy(src_paths[p], dst_paths[p])
