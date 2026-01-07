@@ -6,7 +6,8 @@ app = modal.App("vllm-llama-vanilla-test")
 
 @app.function(
         image=modal.Image.debian_slim().pip_install("requests"),
-        volumes={"/data": data_volume}
+        volumes={"/data": data_volume},
+        timeout=4*3600
 )
 def test():
     import os
