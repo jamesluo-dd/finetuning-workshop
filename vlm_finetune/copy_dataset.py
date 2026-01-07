@@ -14,8 +14,8 @@ DATA_VOLUME_DIR = Path("/data")
 app = modal.App("axolotl-vlm-prep-dataset")
 
 @app.function(
-    image=axolotl_image,
-    #gpu="H100",
+    image= modal.Image.debian_slim().pip_install("requests"),
+    gpu="H100",
     volumes={DATA_VOLUME_DIR.as_posix(): data_volume},
 )
 def prep_dataset():
