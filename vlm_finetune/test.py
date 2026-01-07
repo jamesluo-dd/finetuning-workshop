@@ -78,6 +78,9 @@ def test():
     correct = 0
     errors = 0
 
+    current_dir = os.getcwd()
+    print(current_dir)
+
     with open(data_path, "r") as f:
         for line_idx, line in enumerate(f, start=1):
             line = line.strip()
