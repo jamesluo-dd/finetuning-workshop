@@ -8,7 +8,7 @@ from .common import checkpoints_volume, data_volume
 CONFIG_FILE_PATH = Path("/config_smol_2b.yml")
 
 axolotl_image = (
-    modal.Image.from_registry("axolotlai/main-latest")
+    modal.Image.from_registry("axolotlai/axolotl:main-20260108-py3.11-cu128-2.8.0")
     .pip_install(
         "huggingface_hub",
         "hf-transfer",
