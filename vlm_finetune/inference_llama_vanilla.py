@@ -35,7 +35,7 @@ app = modal.App("vllm-llama-inference-vanilla2")
     },
     env={"VLLM_USE_V1": "0"}
 )
-@modal.concurrent(max_inputs=8)
+@modal.concurrent(max_inputs=32)
 @modal.web_server(port=VLLM_PORT, startup_timeout=10 * 60)
 def serve():
     import subprocess
