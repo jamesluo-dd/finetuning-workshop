@@ -21,7 +21,7 @@ VLLM_PORT = 8000
 hf_cache_vol = modal.Volume.from_name("huggingface-cache", create_if_missing=True)
 vllm_cache_vol = modal.Volume.from_name("vllm-cache", create_if_missing=True)
 
-app = modal.App("vllm-llama-inference-vanilla")
+app = modal.App("vllm-llama-inference-vanilla2")
 
 @app.function(
     image=vllm_image,
