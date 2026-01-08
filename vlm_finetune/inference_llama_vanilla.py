@@ -9,6 +9,7 @@ vllm_image = (
         "huggingface_hub[hf_transfer]==0.32.0",
         "flashinfer-python==0.2.6.post1",
         "bitsandbytes==0.45.3",
+        "num2words",
         extra_index_url="https://download.pytorch.org/whl/cu128",
     )
     .env({"HF_HUB_ENABLE_HF_TRANSFER": "1", "VLLM_USE_V1": "1"})  # faster model transfers
