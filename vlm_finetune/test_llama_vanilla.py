@@ -133,7 +133,7 @@ def test():
                 expected_match = json.loads(expected)['match_decision']
                 #predicted_match = json.loads(predicted)['match_decision']
                 predicted_match = "no"
-                if "yes" in match_decision.lower() or "same" in match_decision.lower() :
+                if "yes" in predicted.lower() or "same" in predicted.lower() :
                     predicted_match = "yes"
                 is_correct = expected_match.lower() == predicted_match.lower()
             except Exception as e:
