@@ -51,6 +51,8 @@ def serve():
         "--port",
         str(VLLM_PORT),
         "--no-enforce-eager",
+        "--kv-cache-dtype", "fp8", 
+        "--max-model-len", "8192" 
         # "--tensor-parallel-size", str(N_GPU)
     ]
 
