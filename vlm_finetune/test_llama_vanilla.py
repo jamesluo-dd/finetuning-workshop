@@ -68,7 +68,8 @@ def test():
         return [m for m in messages if m.get("role") != "assistant"]
 
     base_url = get_server_base_url()
-    model_name = "neuralmagic/Llama-3.2-11B-Vision-Instruct-FP8-dynamic"
+    #model_name = "neuralmagic/Llama-3.2-11B-Vision-Instruct-FP8-dynamic"
+    model_name = "HuggingFaceTB/SmolVLM2-2.2B-Instruct"
     data_path = "/data/mvg_eval.jsonl"
     if not os.path.exists(data_path):
         print(f"Missing test data at {data_path}")
