@@ -120,7 +120,7 @@ def test():
 
             try:
                 content = data["choices"][0]["message"]["content"]
-                predicted = normalize_label(content)
+                predicted = content #normalize_label(content)
             except Exception as e:
                 errors += 1
                 print(f"[{line_idx}] Parse error: {e}; raw: {str(data)[:500]}")
@@ -131,10 +131,15 @@ def test():
             try:
                 print(expected, "vs", predicted)
                 expected_match = json.loads(expected)['match_decision']
-                predicted_match = json.loads(predicted)['match_decision']
+                #predicted_match = json.loads(predicted)['match_decision']
+                predicted_match = "no"
+                if "yes" in match_decision.lower() or "same" in match_decision.lower() :
+                    predicted_match = "yes"
                 is_correct = expected_match.lower() == predicted_match.lower()
             except Exception as e:
+                errors += 1
                 print("decode chat res error", e)
+                continue
             total += 1
             correct += 1 if is_correct else 0
 
