@@ -7,7 +7,7 @@ skip_prepare_dataset: true
 remove_unused_columns: false
 sample_packing: false
 
-chat_template: tokenizer
+chat_template: tokenizer_default
 
 datasets:
   # - path: HuggingFaceH4/llava-instruct-mix-vsft
@@ -47,7 +47,7 @@ wandb_name:
 wandb_log_model:
 
 gradient_accumulation_steps: 128
-micro_batch_size: 8
+micro_batch_size: 32
 num_epochs: 1
 optimizer: adamw_bnb_8bit
 lr_scheduler: cosine
