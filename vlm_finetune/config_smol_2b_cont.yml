@@ -1,4 +1,4 @@
-base_model: /checkpoints/vlm-merged-out_smolvlm_2b_ZL/merged
+base_model: /checkpoints/vlm-merged-out_smolvlm_2b_ZL_cont0/merged
 
 processor_type: AutoProcessor
 #model_type: AutoModelForVision2Seq
@@ -27,7 +27,7 @@ eval_datasets:
     field_images: images
 dataset_prepared_path: ./last_run_prepared
 val_set_size: 0.0
-output_dir: /checkpoints/vlm-lora-out_smolvlm_2b_ZL_cont0
+output_dir: /checkpoints/vlm-lora-out_smolvlm_2b_ZL_cont1
 
 adapter: lora
 lora_model_dir:

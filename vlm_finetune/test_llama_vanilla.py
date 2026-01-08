@@ -180,5 +180,5 @@ def test():
             )
         else:
             print(
-                f"recall { float(true_positive)/(float(true_positive)+float(false_positive))}"
+                f"precision { float(true_positive)/(float(true_positive)+float(false_positive))}"
             )
