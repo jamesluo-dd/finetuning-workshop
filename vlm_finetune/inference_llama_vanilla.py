@@ -24,7 +24,7 @@ app = modal.App("vllm-llama-inference-vanilla")
 
 @app.function(
     image=vllm_image,
-    gpu="H100:3",
+    gpu="H200",
     #scaledown_window=240, # 4 minutes
     timeout=10 * 60,
     volumes={
