@@ -121,6 +121,7 @@ def test():
                 continue
 
             try:
+                print("raw data", data)
                 content = data["choices"][0]["message"]["content"]
                 predicted = content #normalize_label(content)
             except Exception as e:
@@ -161,7 +162,7 @@ def test():
         print(
             f"Done. total={total} correct={correct} accuracy={(correct/total*100.0 if total else 0):.2f}% errors={errors}"
         )
-        if float(true_positive)+float(false_negative) ==0:
+        if (float(true_positive)+float(false_negative)) ==0:
             print(
                 f"no recall. denominator is 0"
             )
