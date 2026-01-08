@@ -63,7 +63,7 @@ def serve():
         "--kv-cache-dtype", "fp8", 
         "--max-model-len", "8192" ,
         #"--quantization","fp8",
-        "--gpu-memory-utilization", "0.5"
+        "--gpu-memory-utilization", "0.99"
         #"--load-format", "fp8" 
         # "--tensor-parallel-size", str(N_GPU)
     ]
