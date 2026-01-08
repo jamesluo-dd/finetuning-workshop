@@ -100,7 +100,7 @@ def test():
             messages = row.get("messages", [])
             expected = extract_expected_answer(messages)
             input_messages = strip_assistant_messages(messages)
-
+            
             payload = {
                 "model": model_name,
                 "messages": input_messages,
