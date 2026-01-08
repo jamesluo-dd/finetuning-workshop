@@ -69,7 +69,7 @@ def test():
 
     base_url = get_server_base_url()
     #model_name = "neuralmagic/Llama-3.2-11B-Vision-Instruct-FP8-dynamic"
-    model_name = "/checkpoints/vlm-merged-out_smolvlm_2b_ZL/merged"
+    model_name = "/checkpoints/vlm-merged-out_smolvlm_2b_Z_cont0/merged"
     data_path = "/data/mvg_golden.jsonl"
     if not os.path.exists(data_path):
         print(f"Missing test data at {data_path}")
@@ -180,5 +180,5 @@ def test():
             )
         else:
             print(
-                f"recall { float(true_positive)/(float(true_positive)+float(false_positive))}"
+                f"precision { float(true_positive)/(float(true_positive)+float(false_positive))}"
             )
