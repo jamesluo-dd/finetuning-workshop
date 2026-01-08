@@ -69,7 +69,7 @@ def test():
 
     base_url = get_server_base_url()
     #model_name = "neuralmagic/Llama-3.2-11B-Vision-Instruct-FP8-dynamic"
-    model_name = "/checkpoints/vlm-merged-out_smolvlm_2b_Z_cont0/merged"
+    model_name = "/checkpoints/vlm-merged-out_smolvlm_2b_ZL_cont0/merged"
     data_path = "/data/mvg_golden.jsonl"
     if not os.path.exists(data_path):
         print(f"Missing test data at {data_path}")
@@ -100,7 +100,10 @@ def test():
             messages = row.get("messages", [])
             expected = extract_expected_answer(messages)
             input_messages = strip_assistant_messages(messages)
-
+            input_messages.append({
+                "role": "user",
+                "content": [{"type":"text","text":"For now, answer like a binary classifier. Output ONLY the word yes or no. Do not provide explanations or punctuation."}]
+            })
             payload = {
                 "model": model_name,
                 "messages": input_messages,
