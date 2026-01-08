@@ -14,7 +14,7 @@ vllm_image = (
     .env({"HF_HUB_ENABLE_HF_TRANSFER": "1", "VLLM_USE_V1": "1"})  # faster model transfers
 )
 
-MODEL_PATH = "unsloth/Llama-3.2-11B-Vision-Instruct-bnb-4bit"  # Local path to Qwen/Qwen2.5-VL-7B-Instruct weights
+MODEL_PATH = "HuggingFaceTB/SmolVLM2-2.2B-Instruct"  # Local path to Qwen/Qwen2.5-VL-7B-Instruct weights
 VLLM_PORT = 8000
 
 
@@ -56,7 +56,7 @@ def serve():
         "--uvicorn-log-level=info",
         MODEL_PATH,
         "--served-model-name",
-        "unsloth/Llama-3.2-11B-Vision-Instruct-bnb-4bit",
+        MODEL_PATH,
         "--host",
         "0.0.0.0",
         "--port",
@@ -65,9 +65,9 @@ def serve():
         "--kv-cache-dtype", "fp8", 
         "--max-model-len", "8192" ,
         #"--quantization","fp8",
-        "--gpu-memory-utilization", "0.30",
+        #"--gpu-memory-utilization", "0.30",
         "--limit-mm-per-prompt", "image=2",
-       "--quantization", "bitsandbytes", "--load-format", "bitsandbytes"
+       #"--quantization", "bitsandbytes", "--load-format", "bitsandbytes"
         #"--load-format", "fp8" 
         # "--tensor-parallel-size", str(N_GPU)
     ]
