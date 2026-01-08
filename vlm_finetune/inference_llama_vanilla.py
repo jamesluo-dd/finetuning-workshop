@@ -40,6 +40,7 @@ app = modal.App("vllm-llama-inference-vanilla2")
 def serve():
     import subprocess
     import torch
+    import os
 
     gpu_stats = torch.cuda.get_device_properties(0)
     start_gpu_memory = round(torch.cuda.max_memory_reserved() / 1024 / 1024 / 1024, 3)
@@ -48,6 +49,7 @@ def serve():
     print(f"{start_gpu_memory} GB of memory reserved.")
 
 
+    os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
     cmd = [
         "vllm",
         "serve",
