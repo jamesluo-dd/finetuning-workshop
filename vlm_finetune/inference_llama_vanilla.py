@@ -25,7 +25,7 @@ app = modal.App("vllm-llama-inference-vanilla")
 
 @app.function(
     image=vllm_image,
-    gpu="B200",
+    gpu="H200",
     #scaledown_window=240, # 4 minutes
     timeout=10 * 60,
     volumes={
@@ -55,7 +55,7 @@ def serve():
         "--kv-cache-dtype", "fp8", 
         "--max-model-len", "8192" ,
         "--quantization","fp8",
-        "--gpu-memory-utilization", "0.6"
+        "--gpu-memory-utilization", "0.3"
         #"--load-format", "fp8" 
         # "--tensor-parallel-size", str(N_GPU)
     ]
