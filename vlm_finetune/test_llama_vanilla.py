@@ -100,6 +100,12 @@ def test():
             messages = row.get("messages", [])
             expected = extract_expected_answer(messages)
             input_messages = strip_assistant_messages(messages)
+
+            for i in range(len(input_messages)):
+                if input_messages[i]["role"] == "user":
+                    input_messages[i]["content"].append(
+                        {"type":"text","text":"Answer if Product 0 and Product 1 are the same like a binary classifier. Output ONLY the word yes or no. Do not provide explanations or punctuation."})
+               
             
             payload = {
                 "model": model_name,
