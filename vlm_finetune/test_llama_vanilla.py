@@ -80,6 +80,7 @@ def test():
     errors = 0
     true_positive = 0
     false_negative = 0
+    false_positive = 0
 
     current_dir = os.getcwd()
     print(current_dir)
@@ -151,7 +152,8 @@ def test():
                 true_positive += 1
             if (not is_correct) and expected_match  == "yes":
                 false_negative += 1
-            
+            if (not is_correct) and expected_match  == "no":
+                false_positive += 1
 
             print(
                 f"[{line_idx}] expected={expected!r} predicted={predicted!r} correct={is_correct}"
@@ -170,4 +172,13 @@ def test():
         else:
             print(
                 f"recall { float(true_positive)/(float(true_positive)+float(false_negative))}"
+            )
+
+        if (float(true_positive)+float(false_positive)) ==0:
+            print(
+                f"no precision. denominator is 0"
+            )
+        else:
+            print(
+                f"recall { float(true_positive)/(float(true_positive)+float(false_positive))}"
             )

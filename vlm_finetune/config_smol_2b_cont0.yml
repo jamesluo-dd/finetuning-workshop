@@ -1,7 +1,7 @@
 base_model: /checkpoints/vlm-merged-out_smolvlm_2b_ZL/merged
 
 processor_type: AutoProcessor
-model_type: AutoModelForVision2Seq
+#model_type: AutoModelForVision2Seq
 
 # these 3 lines are needed for now to handle vision chat templates w images
 skip_prepare_dataset: true
