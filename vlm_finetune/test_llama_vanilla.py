@@ -104,7 +104,7 @@ def test():
             for i in range(len(input_messages)):
                 if input_messages[i]["role"] == "user":
                     input_messages[i]["content"].append(
-                        {"type":"text","text":"Answer if Product 0 and Product 1 are the same like a binary classifier. Output ONLY the word yes or no. Do not provide explanations or punctuation."})
+                        {"type":"text","text":"Output ONLY the word yes or no based on match_decision field. Do not provide explanations or punctuation."})
                
             
             payload = {
