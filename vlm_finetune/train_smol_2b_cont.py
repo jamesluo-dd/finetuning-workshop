@@ -5,7 +5,7 @@ from .common import checkpoints_volume, data_volume
 
 
 
-CONFIG_FILE_PATH = Path("/config_smol_2b_cont0.yml")
+CONFIG_FILE_PATH = Path("/config_smol_2b_cont.yml")
 
 axolotl_image = (
     modal.Image.from_registry("axolotlai/axolotl:main-20260108-py3.11-cu128-2.8.0")
@@ -26,7 +26,7 @@ axolotl_image = (
         )
     )
     .entrypoint([])
-    .add_local_file(Path(__file__).parent / "config_smol_2b_cont0.yml", CONFIG_FILE_PATH.as_posix())
+    .add_local_file(Path(__file__).parent / "config_smol_2b_cont.yml", CONFIG_FILE_PATH.as_posix())
 )
 
 app = modal.App("axolotl-vlm-finetune_smolvlm_2b")
