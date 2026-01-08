@@ -54,7 +54,7 @@ def serve():
         "--enforce-eager",
         "--kv-cache-dtype", "fp8", 
         "--max-model-len", "8192" ,
-        "--quantization","fp8",
+        #"--quantization","fp8",
         "--gpu-memory-utilization", "0.5"
         #"--load-format", "fp8" 
         # "--tensor-parallel-size", str(N_GPU)
