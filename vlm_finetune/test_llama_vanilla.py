@@ -78,6 +78,8 @@ def test():
     total = 0
     correct = 0
     errors = 0
+    true_positive = 0
+    false_negative = 0
 
     current_dir = os.getcwd()
     print(current_dir)
@@ -136,12 +138,18 @@ def test():
                 if "yes" in predicted.lower() or "same" in predicted.lower() or "identical" in predicted.lower():
                     predicted_match = "yes"
                 is_correct = expected_match.lower() == predicted_match.lower()
+                
             except Exception as e:
                 errors += 1
                 print("decode chat res error", e)
                 continue
             total += 1
             correct += 1 if is_correct else 0
+            if is_correct and json.loads(expected)['match_decision'] == "yes":
+                true_positive += 1
+            if not is_correct and json.loads(expected)['match_decision'] == "yes":
+                false_negative += 1
+            
 
             print(
                 f"[{line_idx}] expected={expected!r} predicted={predicted!r} correct={is_correct}"
@@ -153,3 +161,11 @@ def test():
         print(
             f"Done. total={total} correct={correct} accuracy={(correct/total*100.0 if total else 0):.2f}% errors={errors}"
         )
+        if float(true_positive)+float(false_negative) ==0:
+            print(
+                f"no recall. denominator is 0"
+            )
+        else:
+            print(
+                f"recall { float(true_positive)/(float(true_positive)+float(false_negative))}"
+            )
