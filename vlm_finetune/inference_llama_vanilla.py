@@ -14,7 +14,7 @@ vllm_image = (
     .env({"HF_HUB_ENABLE_HF_TRANSFER": "1", "VLLM_USE_V1": "1"})  # faster model transfers
 )
 
-MODEL_PATH = "alpindale/Llama-3.2-11B-Vision-Instruct"  # Local path to Qwen/Qwen2.5-VL-7B-Instruct weights
+MODEL_PATH = "neuralmagic/Llama-3.2-11B-Vision-Instruct-FP8-dynamic"  # Local path to Qwen/Qwen2.5-VL-7B-Instruct weights
 VLLM_PORT = 8000
 
 
@@ -46,7 +46,7 @@ def serve():
         "--uvicorn-log-level=info",
         MODEL_PATH,
         "--served-model-name",
-        "alpindale/Llama-3.2-11B-Vision-Instruct",
+        "neuralmagic/Llama-3.2-11B-Vision-Instruct-FP8-dynamic",
         "--host",
         "0.0.0.0",
         "--port",
@@ -55,7 +55,7 @@ def serve():
         "--kv-cache-dtype", "fp8", 
         "--max-model-len", "8192" ,
         "--quantization","fp8",
-        "--gpu-memory-utilization", "0.3"
+        "--gpu-memory-utilization", "0.5"
         #"--load-format", "fp8" 
         # "--tensor-parallel-size", str(N_GPU)
     ]
