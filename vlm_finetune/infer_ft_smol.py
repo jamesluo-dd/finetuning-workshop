@@ -15,14 +15,14 @@ vllm_image = (
     .env({"HF_HUB_ENABLE_HF_TRANSFER": "1", "VLLM_USE_V1": "1"})  # faster model transfers
 )
 
-MODEL_PATH = "HuggingFaceTB/SmolVLM2-2.2B-Instruct"  # Local path to Qwen/Qwen2.5-VL-7B-Instruct weights
+MODEL_PATH = "/checkpoints/vlm-merged-out_smolvlm_2b_ZL/merged"  # Local path to Qwen/Qwen2.5-VL-7B-Instruct weights
 VLLM_PORT = 8000
 
 
 hf_cache_vol = modal.Volume.from_name("huggingface-cache", create_if_missing=True)
 vllm_cache_vol = modal.Volume.from_name("vllm-cache", create_if_missing=True)
 
-app = modal.App("vllm-llama-inference-vanilla2")
+app = modal.App("vllm-smol-inference")
 
 @app.function(
     image=vllm_image,
