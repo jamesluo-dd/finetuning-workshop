@@ -2,6 +2,7 @@ base_model: HuggingFaceTB/SmolVLM2-2.2B-Instruct
 processor_name: HuggingFaceTB/SmolVLM2-2.2B-Instruct
 trust_remote_code: true
 processor_type: AutoProcessor
+model_type: AutoModelForVision2Seq
 
 # these 3 lines are needed for now to handle vision chat templates w images
 skip_prepare_dataset: true
