@@ -133,7 +133,7 @@ def test():
                 expected_match = json.loads(expected)['match_decision']
                 predicted_match = json.loads(predicted)['match_decision']
                 is_correct = expected_match.lower() == predicted_match.lower()
-            except e:
+            except Exception as e:
                 print("decode chat res error", e)
             total += 1
             correct += 1 if is_correct else 0
