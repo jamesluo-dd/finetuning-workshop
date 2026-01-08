@@ -51,7 +51,7 @@ def serve():
         "0.0.0.0",
         "--port",
         str(VLLM_PORT),
-        "--no-enforce-eager",
+        "--enforce-eager",
         "--kv-cache-dtype", "fp8", 
         "--max-model-len", "8192" ,
         "--quantization","fp8",
