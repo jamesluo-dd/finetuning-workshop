@@ -65,7 +65,7 @@ def serve():
         "--kv-cache-dtype", "fp8", 
         "--max-model-len", "8192" ,
         #"--quantization","fp8",
-        "--gpu-memory-utilization", "0.60",
+        "--gpu-memory-utilization", "0.30",
         "--limit-mm-per-prompt", "image=2",
        "--quantization", "bitsandbytes", "--load-format", "bitsandbytes"
         #"--load-format", "fp8" 
