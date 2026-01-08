@@ -62,7 +62,7 @@ def test():
                     expected_text_parts.append(content)
                 break
         expected_text = " ".join(expected_text_parts).strip() if expected_text_parts else ""
-        return normalize_label(expected_text)
+        return expected_text
 
     def strip_assistant_messages(messages):
         return [m for m in messages if m.get("role") != "assistant"]
@@ -133,7 +133,7 @@ def test():
                 expected_match = json.loads(expected)['match_decision']
                 #predicted_match = json.loads(predicted)['match_decision']
                 predicted_match = "no"
-                if "yes" in predicted.lower() or "same" in predicted.lower() :
+                if "yes" in predicted.lower() or "same" in predicted.lower() or "identical" in predicted.lower():
                     predicted_match = "yes"
                 is_correct = expected_match.lower() == predicted_match.lower()
             except Exception as e:
