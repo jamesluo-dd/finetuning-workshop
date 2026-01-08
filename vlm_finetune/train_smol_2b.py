@@ -15,6 +15,7 @@ axolotl_image = (
         "wandb",
         "fastapi",
         "pydantic",
+        "num2words",
     )
     .env(
         dict(
