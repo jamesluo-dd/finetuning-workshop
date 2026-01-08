@@ -1,4 +1,5 @@
 base_model: HuggingFaceTB/SmolVLM2-2.2B-Instruct
+processor_name: HuggingFaceTB/SmolVLM2-2.2B-Instruct
 trust_remote_code: true
 processor_type: AutoProcessor
 
