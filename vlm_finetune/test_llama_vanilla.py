@@ -146,8 +146,7 @@ def test():
                 continue
             total += 1
             correct += 1 if is_correct else 0
-            expected_match = json.loads(expected)['match_decision']
-            print("is_correct and  expected_match == yes", is_correct , expected_match == "yes" )
+            expected_match = json.loads(expected)['match_decision'].lower()
             if is_correct and  expected_match == "yes":
                 true_positive += 1
             if (not is_correct) and expected_match  == "yes":
