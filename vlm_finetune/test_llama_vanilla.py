@@ -110,7 +110,7 @@ def test():
             payload = {
                 "model": model_name,
                 "messages": input_messages,
-                "max_tokens": 2048,
+                "max_tokens": 1,
                 "temperature": 0,
             }
 
