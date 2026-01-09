@@ -24,14 +24,18 @@ def prep_dataset():
         #"vlm_finetune/data/train_merchant_vs_global.jsonl",
         #"vlm_finetune/data/val_merchant_vs_global.jsonl",
         #"vlm_finetune/data/test_merchant_vs_global.jsonl",
-        "vlm_finetune/data/golden_merchant_vs_global.jsonl",
+        #"vlm_finetune/data/golden_merchant_vs_global.jsonl",
+        "vlm_finetune/data/train_merchant_vs_global_gpt.jsonl",
+         "vlm_finetune/data/golden_merchant_vs_global_p2.jsonl",
     ]
 
     dst_paths = [
         #DATA_VOLUME_DIR / "mvg_train.jsonl",
         #DATA_VOLUME_DIR / "mvg_eval.jsonl",
         #DATA_VOLUME_DIR / "mvg_test.jsonl",
-        DATA_VOLUME_DIR / "mvg_golden.jsonl",
+        #DATA_VOLUME_DIR / "mvg_golden.jsonl",
+        DATA_VOLUME_DIR / "mvg_train_gpt.jsonl",
+        DATA_VOLUME_DIR / "mvg_golden_p2.jsonl",
     ]
 
     # def convert_one(src: Path, dst: Path) -> None:
