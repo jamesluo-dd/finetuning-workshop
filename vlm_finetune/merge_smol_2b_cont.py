@@ -51,17 +51,6 @@ def train():
     subprocess.run(
         [
             "axolotl",
-            "train",
-            CONFIG_FILE_PATH.as_posix(),
-            "--output-dir",
-            LORA_OUTPUT_DIR.as_posix(),
-        ],
-        check=True,
-    )
-
-    subprocess.run(
-        [
-            "axolotl",
             "merge-lora",
             CONFIG_FILE_PATH.as_posix(),
             f"--lora-model-dir={LORA_OUTPUT_DIR.as_posix()}",
