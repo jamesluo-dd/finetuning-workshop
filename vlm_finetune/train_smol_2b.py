@@ -34,8 +34,8 @@ app = modal.App("axolotl-vlm-finetune_smolvlm_2b")
 CKPT_VOLUME_DIR = Path("/checkpoints")
 DATA_VOLUME_DIR = Path("/data")
 
-LORA_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-lora-out_smolvlm_2b_ZL"
-MERGED_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-merged-out_smolvlm_2b_ZL"
+LORA_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-lora-out_smolvlm_2b_gptlabel_ZL"
+MERGED_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-merged-out_smolvlm_2b_gptlabel_ZL"
 
 
 @app.function(
