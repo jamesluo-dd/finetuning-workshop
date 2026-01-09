@@ -24,7 +24,7 @@ datasets:
 
 dataset_prepared_path: ./last_run_prepared
 val_set_size: 0.0
-output_dir: /checkpoints/vlm-lora-out_smolvlm_2b_gptlabel_ZL_v2_128
+output_dir: /checkpoints/vlm-lora-out_smolvlm_2b_gptlabel_ZL_v2_32
 
 adapter: lora
 lora_model_dir:
@@ -44,9 +44,9 @@ wandb_watch:
 wandb_name:
 wandb_log_model:
 
-gradient_accumulation_steps: 128
+gradient_accumulation_steps: 32
 micro_batch_size: 10
-num_epochs: 32
+num_epochs: 5
 optimizer: adamw_bnb_8bit
 lr_scheduler: cosine
 learning_rate: 0.0001
