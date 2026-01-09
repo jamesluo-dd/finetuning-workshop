@@ -44,9 +44,9 @@ wandb_watch:
 wandb_name:
 wandb_log_model:
 
-gradient_accumulation_steps: 8
+gradient_accumulation_steps: 64
 micro_batch_size: 10
-num_epochs: 2
+num_epochs: 16
 optimizer: adamw_bnb_8bit
 lr_scheduler: cosine
 learning_rate: 0.0001
