@@ -69,8 +69,8 @@ def test():
 
     base_url = get_server_base_url()
     #model_name = "neuralmagic/Llama-3.2-11B-Vision-Instruct-FP8-dynamic"
-    model_name = "/checkpoints/vlm-merged-out_smolvlm_2b_ZL_cont1/merged"
-    data_path = "/data/mvg_golden.jsonl"
+    model_name = "/checkpoints/vlm-merged-out_smolvlm_2b_gptlabel_ZL/merged"
+    data_path = "/data/mvg_golden_p2.jsonl"
     if not os.path.exists(data_path):
         print(f"Missing test data at {data_path}")
         return
@@ -100,12 +100,7 @@ def test():
             messages = row.get("messages", [])
             expected = extract_expected_answer(messages)
             input_messages = strip_assistant_messages(messages)
-            for i in range(len(input_messages)):
-                if input_messages[i]["role"] == "user":
-                    input_messages[i]["content"].append(
-                        {"type":"text","text":"Output ONLY the word yes or no based on match_decision field. Do not provide explanations or punctuation."})
-                
-            
+                            
             payload = {
                 "model": model_name,
                 "messages": input_messages,
@@ -139,8 +134,9 @@ def test():
             is_correct = False
             try:
                 print(expected, "vs", predicted)
-                expected_match = json.loads(expected)['match_decision']
+                #expected_match = json.loads(expected)['match_decision']
                 #predicted_match = json.loads(predicted)['match_decision']
+                expected_match = expected.lower()
                 predicted_match = "no"
                 if "yes" in predicted.lower() or "same" in predicted.lower() or "identical" in predicted.lower():
                     predicted_match = "yes"
@@ -152,7 +148,8 @@ def test():
                 continue
             total += 1
             correct += 1 if is_correct else 0
-            expected_match = json.loads(expected)['match_decision'].lower()
+            #expected_match = json.loads(expected)['match_decision'].lower()
+            expected_match = expected.lower()
             if is_correct and  expected_match == "yes":
                 true_positive += 1
             if (not is_correct) and expected_match  == "yes":
