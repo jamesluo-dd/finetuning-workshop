@@ -1,7 +1,8 @@
-base_model: /checkpoints/vlm-merged-out_smolvlm_2b_gptlabel_ZL_v2/merged
-
+base_model: HuggingFaceTB/SmolVLM2-2.2B-Instruct
+processor_name: HuggingFaceTB/SmolVLM2-2.2B-Instruct
+trust_remote_code: true
 processor_type: AutoProcessor
-#model_type: AutoModelForVision2Seq
+model_type: AutoModelForVision2Seq
 
 # these 3 lines are needed for now to handle vision chat templates w images
 skip_prepare_dataset: true
@@ -16,18 +17,14 @@ datasets:
   #   split: train[:1%]
   #   field_messages: messages
   #   # field_images: images_vsft
-  - path: /data/mvg_train.jsonl
+  - path: /data/mvg_train_gpt.jsonl
     type: chat_template
     field_messages: messages
     field_images: images
-eval_datasets:
-  - path: /data/mvg_eval.jsonl
-    type: chat_template
-    field_messages: messages
-    field_images: images
+
 dataset_prepared_path: ./last_run_prepared
 val_set_size: 0.0
-output_dir: /checkpoints/vlm-lora-out_smolvlm_2b_gptlabel_ZL_v2_cont
+output_dir: /checkpoints/vlm-lora-out_smolvlm_2b_gptlabel_ZL_v2_128
 
 adapter: lora
 lora_model_dir:
@@ -47,12 +44,12 @@ wandb_watch:
 wandb_name:
 wandb_log_model:
 
-gradient_accumulation_steps: 32
+gradient_accumulation_steps: 128
 micro_batch_size: 10
-num_epochs: 2
+num_epochs: 32
 optimizer: adamw_bnb_8bit
 lr_scheduler: cosine
-learning_rate: 0.00005
+learning_rate: 0.0001
 # train_on_inputs: true
 
 bf16: true

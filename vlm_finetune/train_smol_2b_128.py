@@ -5,7 +5,7 @@ from .common import checkpoints_volume, data_volume
 
 
 
-CONFIG_FILE_PATH = Path("/config_smol_2b_cont.yml")
+CONFIG_FILE_PATH = Path("/config_smol_2b_128.yml")
 
 axolotl_image = (
     modal.Image.from_registry("axolotlai/axolotl:main-20260108-py3.11-cu128-2.8.0")
@@ -26,7 +26,7 @@ axolotl_image = (
         )
     )
     .entrypoint([])
-    .add_local_file(Path(__file__).parent / "config_smol_2b_cont.yml", CONFIG_FILE_PATH.as_posix())
+    .add_local_file(Path(__file__).parent / "config_smol_2b_128.yml", CONFIG_FILE_PATH.as_posix())
 )
 
 app = modal.App("axolotl-vlm-finetune_smolvlm_2b")
@@ -34,8 +34,8 @@ app = modal.App("axolotl-vlm-finetune_smolvlm_2b")
 CKPT_VOLUME_DIR = Path("/checkpoints")
 DATA_VOLUME_DIR = Path("/data")
 
-LORA_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-lora-out_smolvlm_2b_gptlabel_ZL_v2_cont"
-MERGED_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-merged-ou_smolvlm_2b_gptlabel_ZL_v2_cont"
+LORA_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-lora-out_smolvlm_2b_gptlabel_ZL_v2_128"
+MERGED_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-merged-out_smolvlm_2b_gptlabel_ZL_v2_128"
 
 
 @app.function(
@@ -43,7 +43,7 @@ MERGED_OUTPUT_DIR = CKPT_VOLUME_DIR / "vlm-merged-ou_smolvlm_2b_gptlabel_ZL_v2_c
     gpu="H200",
     #secrets=[modal.Secret.from_name("huggingface-secret")],
     volumes={CKPT_VOLUME_DIR.as_posix(): checkpoints_volume, DATA_VOLUME_DIR.as_posix(): data_volume},
-    timeout=6 * 60 * 60,  # 4 hours
+    timeout=4 * 60 * 60,  # 4 hours
 )
 def train():
     import subprocess

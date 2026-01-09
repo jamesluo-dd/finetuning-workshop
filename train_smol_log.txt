@@ -1,0 +1,7 @@
+╭─ Modal Deprecation Warning (2025-02-06) ──────────────────────────────────────────────────────────────╮
+│ Using Python module paths will require using the -m flag in a future version of Modal.                │
+│ Use `modal run -m vlm_finetune.train_smol_2b_cont` instead.                                           │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─ Error ───────────────────────────────────────────────────────────────────────────────────────────────╮
+│ You don't have permission to access Environment 'en-K08gayh5Mh1hmEALkXYidI'                           │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────╯
