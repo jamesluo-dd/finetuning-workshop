@@ -140,8 +140,9 @@ def test():
             is_correct = False
             try:
                 print(expected, "vs", predicted)
-                expected_match = json.loads(expected)['match_decision']
+                #expected_match = json.loads(expected)['match_decision']
                 #predicted_match = json.loads(predicted)['match_decision']
+                expected_match =  expected.lower()
                 predicted_match = "no"
                 if "yes" in predicted.lower() or "same" in predicted.lower() or "identical" in predicted.lower():
                     predicted_match = "yes"
@@ -153,7 +154,7 @@ def test():
                 continue
             total += 1
             correct += 1 if is_correct else 0
-            expected_match = json.loads(expected)['match_decision'].lower()
+            expected_match = expected.lower()
             if is_correct and  expected_match == "yes":
                 true_positive += 1
             if (not is_correct) and expected_match  == "yes":
