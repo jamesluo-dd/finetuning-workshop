@@ -69,7 +69,7 @@ def test():
 
     base_url = get_server_base_url()
     #model_name = "neuralmagic/Llama-3.2-11B-Vision-Instruct-FP8-dynamic"
-    model_name = "/checkpoints/vlm-merged-out_smolvlm_2b_gptlabel_ZL_v2_32/merged"
+    model_name = "/checkpoints/vlm-merged-out_smolvlm_2b_gptlabel_ZL_v2/merged"
     data_path = "/data/mvg_golden_p2.jsonl"
     if not os.path.exists(data_path):
         print(f"Missing test data at {data_path}")
@@ -100,6 +100,14 @@ def test():
             messages = row.get("messages", [])
             expected = extract_expected_answer(messages)
             input_messages = strip_assistant_messages(messages)
+
+            image_count = 0
+            for m in input_messages:
+                if m["type"] ==  'image_url'
+                    image_count+=1
+            if image_count != 2:
+                print("skip due to no image pair")
+                continue
                             
             payload = {
                 "model": model_name,
