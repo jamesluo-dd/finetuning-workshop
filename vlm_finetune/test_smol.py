@@ -103,7 +103,7 @@ def test():
 
             image_count = 0
             for m in input_messages:
-                if m["type"] ==  'image_url'
+                if m["type"] ==  'image_url':
                     image_count+=1
             if image_count != 2:
                 print("skip due to no image pair")
