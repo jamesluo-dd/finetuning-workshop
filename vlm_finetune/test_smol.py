@@ -103,10 +103,13 @@ def test():
 
             image_count = 0
             for m in input_messages:
-                if m["type"] ==  'image_url':
-                    image_count+=1
+                if m["role"] == "user":
+                    for content in m["content"]:
+                        if content['type'] ==  'image_url':
+                            image_count+=1
             if image_count != 2:
                 print("skip due to no image pair")
+                print(input_messages[1])
                 continue
                             
             payload = {
